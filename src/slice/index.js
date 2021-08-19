@@ -1,5 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { searchService } from '../services';
+import { getItemsPath } from '../config';
+import { getPath } from '../utils';
 
 // ---------------------------------------------------------------
 
@@ -9,8 +11,10 @@ export const requestSearchThunk = createAsyncThunk('requestSearchThunk', async (
    try {
     const response = await searchService(searchEngine, searchTerm);
     response.requestId = thunkApi.requestId;
+
+    const itemsPath = getItemsPath(searchEngine);
+    const items = getPath(response.data, itemsPath);    
     
-    const { items } = response.data;
     const extendedItems = items.map(item => {
         return {...item, searchEngine: searchEngine};
     })

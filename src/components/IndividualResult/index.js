@@ -6,12 +6,16 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import SearchIcon from '@material-ui/icons/Search';
 
-import { getEngineColor } from '../../config';
+import { getEngineColor, getItemTitle, getItemLink } from '../../config';
 import ListItemLink from '../ListItemLink';
 
 import './index.css';
 
 const IndividualResult = ({result}) => {
+    const titleKey = getItemTitle(result.searchEngine);
+    const linkKey = getItemLink(result.searchEngine) 
+    const title = result[titleKey];
+    const link = result[linkKey];
 
     return (
         <ListItem className = "individualResult">
@@ -20,8 +24,8 @@ const IndividualResult = ({result}) => {
           <SearchIcon/>
           </Avatar>
         </ListItemAvatar>
-        <ListItemLink href ={ result.link }>
-        <ListItemText primary={result.title} secondary={result.link} />
+        <ListItemLink href ={ link }>
+        <ListItemText primary={ title } secondary={ link } />
         </ListItemLink>
       </ListItem>
     );
