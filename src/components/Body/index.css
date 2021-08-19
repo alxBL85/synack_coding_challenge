@@ -1,0 +1,40 @@
+.bodyContainer {
+    position: fixed;
+    top: 75px;
+    width:100%;
+    height: 100%;
+    background-color: #004466;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+ 
+ .inputTextField {
+     background-color: white;
+     border-radius: 5px;
+     padding: 5px 15px;
+     width: 600px;
+     margin-top: 25px;
+ }
+ 
+ .issueDescription {
+   background-color: white;
+   border-radius: 5px;
+   padding: 5px 15px;
+   width: 600px;
+   margin-top: 25px;
+ }
+
+ .searchBox {
+    display: flex;
+    flex-direction: row;    
+ }
+
+ .searchButton {
+   margin-left: 20px;
+   padding-left: 20px;
+   height: 40px;
+   top: 20px;
+   left: 10px;
+ }
