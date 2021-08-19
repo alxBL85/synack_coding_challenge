@@ -31,8 +31,7 @@ export const searchService = async (engineName, searchTerm) => {
         
         const encodedParams = encodeParams({ ...queryParams, [searchParam]: searchTerm });
         const url = `${baseUrl}?${encodedParams}`;
-        
-        console.log("the url ", url);
+                
         const response = await getService(url, headerParams);
         return response;
     }
